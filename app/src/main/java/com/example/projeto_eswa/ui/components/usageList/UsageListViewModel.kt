@@ -1,4 +1,4 @@
-package com.example.projeto_eswa.ui.home.usageList
+package com.example.projeto_eswa.ui.components.usageList
 
 import androidx.lifecycle.ViewModel
 import com.example.projeto_eswa.model.DateOption

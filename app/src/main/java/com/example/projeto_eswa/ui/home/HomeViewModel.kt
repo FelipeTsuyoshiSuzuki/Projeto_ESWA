@@ -14,19 +14,22 @@ class HomeViewModel : ViewModel() {
     fun setItemList() {
         usageList.filter { it.totalTimeVisible.toInt() > 60000 }
             .forEach { usageInfo ->
-            itemList.add(
-                StatusModel(
-                    usageInfo = usageInfo,
-                    packageInfo = appList.find { applicationInfo ->
-                        applicationInfo.packageName == usageInfo.packageName
-                    }
-                )
-            )
-        }
+                if (itemList.none { it.packageInfo?.packageName == usageInfo.packageName }) {
+                    itemList.add(
+                        StatusModel(
+                            usageInfo = usageInfo,
+                            packageInfo = appList.find { applicationInfo ->
+                                applicationInfo.packageName == usageInfo.packageName
+                            }
+                        )
+                    )
+                }
+            }
         itemList.sortByDescending {
             it.usageInfo.totalTimeVisible
         }
         sortList()
     }
-    private fun sortList() =  itemList.sortByDescending { it.usageInfo.totalTimeVisible }
+
+    private fun sortList() = itemList.sortByDescending { it.usageInfo.totalTimeVisible }
 }

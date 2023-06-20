@@ -1,4 +1,4 @@
-package com.example.projeto_eswa.ui.home.usageList
+package com.example.projeto_eswa.ui.components.usageList
 
 import android.graphics.drawable.Drawable
 import androidx.compose.foundation.BorderStroke
